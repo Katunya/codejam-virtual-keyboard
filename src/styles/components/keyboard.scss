@@ -1,0 +1,86 @@
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20px);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 10px;
+  justify-content: center;
+  min-width: 900px;
+}
+
+.key {
+  position: relative;
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border: 1px solid $color-keyboard;
+  color: $color-keyboard;
+  border-radius: 5px;
+  font-size: 16px;
+  user-select: none;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &::before {
+    content: attr(data-shift-key);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 14px;
+  }
+
+  &:hover {
+    background: $color-keyboard-hover;
+  }
+
+  &_active {
+    animation: active-key 0.3s;
+  }
+
+  &_size {
+    &_1-half {
+      grid-column: span 3;
+    }
+
+    &_2 {
+      grid-column: span 4;
+    }
+
+    &_2-half {
+      grid-column: span 5;
+    }
+
+    &_6 {
+      grid-column: span 12;
+    }
+  }
+
+  &_row {
+    &_1 {
+      grid-row: 1 / 2;
+    }
+
+    &_2 {
+      grid-row: 2 / 3;
+    }
+
+    &_3 {
+      grid-row: 3 / 4;
+    }
+
+    &_4 {
+      grid-row: 4 / 5;
+    }
+
+    &_5 {
+      grid-row: 5 / 6;
+    }
+  }
+}
+
+@keyframes active-key {
+  100% {
+    background: $color-keyboard-active;
+  }
+}
