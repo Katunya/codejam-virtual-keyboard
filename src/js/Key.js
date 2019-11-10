@@ -1,5 +1,7 @@
 export default class Key {
-  constructor({key, code, shiftKey = null, size = null, isControlKey = false,}, language) {
+  constructor({
+    key, code, shiftKey = null, size = null, isControlKey = false,
+  }, language) {
     this.el = null;
     this.key = key;
     this.code = code;
